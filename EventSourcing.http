@@ -1,6 +1,12 @@
 @EventSourcing_HostAddress = http://localhost:5250
 
-GET {{EventSourcing_HostAddress}}/weatherforecast/
-Accept: application/json
+POST {{EventSourcing_HostAddress}}/events
+Content-Type: application/json
+
+{
+  "streamId": "order-123",
+  "eventType": "OrderCreated",
+  "data": "{\"orderId\":\"123\",\"amount\":42.5}"
+}
 
 ###
